@@ -1,6 +1,6 @@
 # Post Loader
 
-Project built with React & Redux. Getting articles from Wordpress API.git remote add origin git@github.com:OskarJankowiak/posts_loader.git
+Project built with React & Redux. Getting articles from Wordpress API
 
 
 ## How to start app?
