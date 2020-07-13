@@ -1,0 +1,31 @@
+@import '../../../styles/base';
+
+.firstPage-wrapper {
+  max-width: 1700px;
+  min-height: 100vh;
+  margin: 180px auto 0;
+}
+
+.read-btn{
+  position: relative;
+  padding: 20px 10px;
+  width: 250px;
+  height: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $dark;
+  @include thinBorder;
+  @include flex-center(column);
+  color: $red;
+  font-weight: bold;
+}
+
+.articles {
+  margin: 0 auto;
+}
+
+
+
+
+
+

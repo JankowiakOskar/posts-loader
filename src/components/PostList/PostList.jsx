@@ -1,22 +1,29 @@
-import React from 'react'
-import './PostList.scss'
-import PostDetail from './PostDetail/PostDetail'
-
+import React from 'react';
+import './PostList.scss';
+import PostDetail from './PostDetail/PostDetail';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { Container, Row } from 'react-bootstrap';
+import LoadButton from '../Buttons/LoadButton/LoadButton';
 
 const PostList = (props) => {
-  const { posts } = props
-  return ( 
-    <div className="post-list row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      {posts&& posts.map(post => {
-        return (
-          <PostDetail post={post} key={post.ID}/>
-        )
-      })}
-    </div>
-   );
-}
-   
-    
+  const { posts } = props;
+  
+  let postList = posts.length ? (
+    posts.map((article) => {
+      return <PostDetail article={article} key={article.id} />;
+    })
+  ) : (
+      <LoadingSpinner/>
+  );
 
- 
+  return (
+    <Container className="postlist-ctn" fluid >
+      <Row>
+          {postList}
+          {posts.length && <LoadButton/>}
+      </Row>
+    </Container>
+  )
+};
+
 export default PostList;

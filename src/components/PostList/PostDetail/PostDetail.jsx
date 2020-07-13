@@ -1,40 +1,39 @@
-import React from 'react'
-import './PostDetail.scss'
-import moment from 'moment'
+import React from 'react';
+import './PostDetail.scss';
+import moment from 'moment';
+import { Col, Card } from 'react-bootstrap';
 
-const PostDetail = ({ post }) => {
+const PostDetail = (props) => {
+  const { article, news } = props;
+  let post = article || news;
 
-  const postDate = post.modified;
+  const descMarkUp = () => {
+    return { __html: post.description };
+  };
 
-  const formatDesc = (text) => {
-    const regX = /(<([^>]+)>)/ig;
-    const newDesc = text.replace(regX, '');
-
-    return newDesc
-
-  }
   return (
-        <div className="col pt-3">
-          <div className="card">
-            <img src={post.featured_image} className="card-img-top" alt={post.slug}/>
-            <div className="card-body">
-              <div className="title-ctn">
-                <h5 className="card-title">{post.title}</h5>
-                <h6 className="card-subtitle text-muted mb-3 mt-3">{moment(postDate).format('LLL')}</h6>
-              </div>
-              <div className="desc">
-                <p className="card-text">{formatDesc(post.excerpt)}</p>
-              </div>
-              <div className="btns-ctn">
-                <a href={post.URL} className="btn btn-primary btn-sm mr-3" type="button">Go to Article</a>
-                <a href={post.author.profile_URL} className="btn btn-secondary btn-sm" type="button">About Author</a>
-              </div>
-            </div>
-          </div>
-        </div> 
-   );
-}
+    <Col className="col" xs={12} sm={12} md={6} lg={6} xl={4}>
+      <Card>
+        <Card.Img variant="top" src={post.img} alt="article_img" />
+        <Card.Body>
+          <Card.Title>{post.title}</Card.Title>
+          <Card.Subtitle className="mb-3 mt-3">
+            {moment(post.datePublished).format('LLL')}
+          </Card.Subtitle>
+          <Card.Text dangerouslySetInnerHTML={descMarkUp()}></Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <a href={post.articleURL} className="btn-article mr-3">
+            Read article
+          </a>
 
+          <a href={post.authorURL} className="btn-author">
+            Go to profile
+          </a>
+        </Card.Footer>
+      </Card>
+    </Col>
+  );
+};
 
- 
 export default PostDetail;

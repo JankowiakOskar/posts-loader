@@ -1,7 +1,23 @@
+@import '../../../styles/base';
+
+
 .btn-loader {
   width: 250px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $dark;
+  color: #fff;
+  transition: all .1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.btn-loader:hover{
+  border: 2px solid $dark;
+  background-color: #fff;
+}
+
+.btn-loader:focus{
+  border: 2px solid $dark;
+  background-color: #fff;
 }

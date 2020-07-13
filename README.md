@@ -1,9 +1,21 @@
 # Posts Loader
-App built with React & Redux and Wordpress API. Getting articles from API and show them on the website
+Newspapper app to getting and reading articles from Wordpress API.
+## App built with stack:
+- React JS 
+- React Redux
+- React Router
+- Wordpress API 
+- GSAP
+- Firebase
+
 
 ## Functionalities
-- load six new posts after clicking load more posts btn
-- checking articles and users 
+- Firebase authentications
+- Create new account and sign in 
+- Get couple articles if user is unlogged
+- Load six new articles after clicking loading button if user is logged in
+- Errors messages
+- Modal
 
 
 ### How to run app?

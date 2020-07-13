@@ -1,0 +1,90 @@
+
+@import '../../../styles/base';
+
+
+.form {
+  position: relative;
+  margin: 80px auto 0;
+  width: 95%;
+  max-width: 700px;
+  background: $red;
+  @include thinBorder;
+  z-index: 5;
+}
+
+.title-form {
+  color: #fff;
+  text-shadow: 0 0 4px $dark
+}
+
+.description {
+  padding: 5px;
+  box-shadow: 0 0 3px $dark;
+  font-weight: bold;
+}
+
+.form-group {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.input-group {
+  margin: 15px 0;
+}
+
+.input-group-text {
+  background: $dark;
+  color: $red;
+  border: none;
+  box-shadow: 0 0 5px $dark;
+}
+
+
+.form-control {
+  font-weight: bold;
+  box-shadow: 0 0 5px $dark;
+  transition: all 0.1s cubic-bezier(1, 0, 0, 1);
+}
+
+.form-control:focus  {
+  font-weight: bold;
+  border: 2px solid $dark;
+  box-shadow: 0 0 2px $dark;
+}
+
+.form-control::placeholder {
+  font-weight: bold;
+  color: $grey;
+  transition: all 0.3s linear;
+}
+
+.form-control:focus.form-control::placeholder {
+  transform: translateX(500px) scaleY(0);
+  
+}
+
+.form-footer {
+  margin: 20px;
+  @include flex-center(row);
+}
+
+.signUp-btn {
+  width: 150px;
+}
+
+
+
+@media (max-width: 320px){
+  .title-form {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .input-group {
+    width: 80%;
+    margin: 15px auto;
+  }
+}
+
+

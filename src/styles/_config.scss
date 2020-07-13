@@ -1,0 +1,35 @@
+
+$red: #D93240;
+$bloodRed: rgb(237, 23, 23);
+$dark: #343a40;
+$grey: #BFBFBF;
+
+@mixin flex-center($direction) {
+  display: flex;
+  flex-direction: ($direction);
+  align-items: center;
+  justify-content: center;
+}
+
+
+@mixin thinBorder {
+  border: 1.5px solid $dark;
+  border-radius: 5px;
+  box-shadow: 0 0 2px $dark;
+}
+
+@mixin thinTextShadow {
+  text-shadow: 0 0 1px $dark
+}
+
+@mixin btnCard ($bgColor) {
+  @include thinBorder;
+  @include flex-center(row);
+  width: 80px;
+  padding: 8px 10px;
+  height: 30px;
+  background: $bgColor;
+  text-align: center;
+  color: #fff;
+  
+}

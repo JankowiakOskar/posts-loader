@@ -1,0 +1,72 @@
+@import '../../../styles/base';
+
+
+
+.links-ctn {
+  flex: 1;
+  @include thinTextShadow;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $dark;
+}
+
+.nav-link {
+  flex: 0.5;
+  overflow: hidden;
+  @include flex-center(column);
+}
+
+
+
+.nav-text {
+  color: $dark;
+  font-weight: bold;
+}
+
+.underline {
+  margin: 3px 0 0 0;
+  display: inline-block;
+  width: 20%;
+  height: 2px;
+  background: $red;
+  box-shadow: 0 0 1.5px $dark;
+  border: 1px solid $red;
+  border-radius: 50%;
+  transform: translateX(-130%);
+  transition: all 0.10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+.initials {
+  display:none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid $dark;
+  background-color: $red;
+  color: $dark;
+  box-shadow: 0 0 2px $dark;
+}
+
+
+
+
+
+@media screen and (min-width:1025px){
+  .nav-link:hover .underline {
+    transform: translate(0,0);
+    width: 100%;
+  }
+}
+
+@media (min-width: 360px) {
+  .initials {
+    padding: 5px 15px;
+    display: block;
+  }
+}

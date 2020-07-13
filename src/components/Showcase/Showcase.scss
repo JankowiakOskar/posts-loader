@@ -1,0 +1,69 @@
+@import '../../styles/base';
+
+.showcase {
+  max-width: 1700px;
+  margin: 100px auto 50px;
+  position: relative;
+  height: 50vh;
+  @include flex-center(row);
+  background: url('../../images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  @include thinBorder;
+
+  h1 {
+    @include flex-center(row);
+    height: 100px;
+    padding: 20px 50px;
+    position: absolute;
+    top: -5.5rem;
+    color: $red;
+    background-color: transparent;
+    z-index: -2;
+    @include thinBorder;
+    @include thinTextShadow;
+  }
+
+  i {
+    color: $red;
+    font-size: 3rem;
+  }
+}
+
+.showcase:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.3);
+}
+
+
+@media (min-width: 320px){
+  .showcase {
+    h1 {
+      padding: 20px 20px 30px;
+      font-size: 1.7rem;
+      top: -7.5rem;
+    }
+  }
+}
+
+@media (min-width: 774px) and(max-width: 1199px) {
+  .showcase {
+    h1 {
+      top: -5.5rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .showcase {
+    h1 {
+      top: -5rem;
+    }
+  }
+}

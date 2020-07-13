@@ -1,27 +1,55 @@
+@import '../../../styles/base.scss';
 
 .col {
-  min-height: 30vh;
+  margin: 15px 0;
+  min-height: 50vh;
 }
 
 .card {
   height: 100%;
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  button, a {
+    text-transform: uppercase;
+    
+  }
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.card-body > * {
+  padding: 0.2rem;
 }
 
-.desc {
-  padding: 20px 0;
+.card-footer {
+  @include flex-center(row);
 }
 
-img {
-  height: 200px;
-  object-fit: cover;
+
+
+.btn-article{
+  flex: 0.5;
+  @include btnCard($red);
+  transition: all .10s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
-button, a {
-  text-transform: uppercase;
+.btn-author {
+  flex: 0.5;
+  @include btnCard($dark)
 }
+
+.btn-article:hover {
+  background-color: #a11e29;
+  color: #fff;
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+  .card-footer{
+    padding: 0.2rem;
+  }
+}
+
+
+
+

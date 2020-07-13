@@ -1,19 +1,26 @@
 import React from 'react';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
 import './LoadingSpinner.scss';
+import { connect } from 'react-redux';
 
+const LoadingSpinner = ({ postsLoaded }) => {
 
-const LoadingSpinner = () => {
-  const darkColor = '#343a40'
+  
   return (
     <Loader
-         className="spinner" 
-         type="TailSpin"
-         color={darkColor}
-         width={30}
-         height={30}
+      className="spinner"
+      type="TailSpin"
+      color={postsLoaded ? 'white' : '#D93240'}
+      width={30}
+      height={30}
     />
-  )
-}
+  );
+};
 
-export default LoadingSpinner;
+const mapStateToProps = (state) => {
+  return {
+    postsLoaded: state.blog.postList.length,
+  };
+};
+
+export default connect(mapStateToProps, null)(LoadingSpinner);

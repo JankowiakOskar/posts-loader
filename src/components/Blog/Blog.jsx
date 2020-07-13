@@ -1,47 +1,45 @@
-import React, { Component } from 'react'
-import './Blog.scss'
-import PostList from '../PostList/PostList'
-import LoadButton from '../Buttons/LoadButton/LoadButton'
+import React, { Component } from 'react';
+import './Blog.scss';
+import PostList from '../PostList/PostList';
 import { connect } from 'react-redux';
-import { getPosts } from '../../store/actions/blogActions'
-
+import { compose } from 'redux';
+import { getPosts } from '../../store/actions/blogActions';
+import { Container } from 'react-bootstrap';
+import {RouterGuard } from '../../components/HOC/IsAuthUser';
 
 class Board extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
   componentDidMount() {
     this.props.loadPosts();
   }
 
-
   render() {
-    const {loadPosts, posts} = this.props;
-    return ( 
-      <div className="board container">
-        <PostList posts={posts}/>
-        {posts.length && <LoadButton posts={posts} loadPosts={loadPosts}/>}
-      </div>
-     );
+    const { posts} = this.props;
+    return (
+      <Container className="board">
+        <PostList posts={posts} />
+      </Container>
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.postList,
-    isLoadingFailed: state.loadingFailed,
-    isLoadingPosts: state.isLoading,
-  }
-}
-
+    posts: state.blog.postList,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadPosts: (num) => dispatch(getPosts(num))
-  }
-}
- 
-export default connect(mapStateToProps,mapDispatchToProps)(Board);
+    loadPosts: (num) => dispatch(getPosts(num)),
+  };
+};
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  RouterGuard
+)(Board);

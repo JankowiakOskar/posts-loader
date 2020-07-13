@@ -1,0 +1,42 @@
+@import '../../styles/base.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.link {
+  text-decoration: none;
+  color: none;
+}
+
+.navbar {
+  max-width: 1750px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  background-color: transparent;
+  @include thinBorder;
+  border-radius: 0 0 10px 10px;
+}
+
+.navbar-brand {
+  width: 25%;
+}
+
+.navbar-brand .brand {
+  color: $dark;
+  padding: 0.5em;
+  font-weight: bold;
+  border: 2px solid $dark;
+  border-radius: 10px;
+  transition: all 0.1s linear;
+  @include thinTextShadow; 
+}
+
+
+
+@media screen and (min-width: 1024px){
+  .navbar-brand:hover .brand {
+    color: $red;
+  }
+}
+
+

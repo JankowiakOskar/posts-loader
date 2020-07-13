@@ -2,30 +2,48 @@ import React from 'react';
 import './LoadButton.scss';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import { connect } from 'react-redux';
+import { getPosts } from '../../../store/actions/blogActions';
 
 const LoadButton = ({ posts, loadPosts, isLoadingPosts }) => {
-  const postsLoading = isLoadingPosts;
+  
 
   const handleClick = (muchPost) => {
     const loadedPosts = posts.length;
     const addPosts = loadedPosts + muchPost;
-    loadPosts(addPosts)
-  }
+    loadPosts(addPosts);
+  };
+  
+  const btnContent = isLoadingPosts ? <LoadingSpinner /> : 'Load more posts';
 
-  const btnContent = postsLoading ? <LoadingSpinner/> : ('Load More Posts')
 
-  return ( 
+  return (
     <div className="container d-flex justify-content-center">
-      <button type="button" className="btn-loader btn btn-success m-5" onClick={() => handleClick(6)} disabled={postsLoading}>{btnContent}</button>
+      <button
+        type="button"
+        className="btn btn-loader btn m-5"
+        onClick={() => handleClick(6)}
+        disabled={isLoadingPosts}
+      >
+        {btnContent}
+      </button>
     </div>
-   );
-}
-
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
-    isLoadingPosts: state.isLoading
-  }
-}
- 
-export default connect(mapStateToProps,null)(LoadButton);
+    posts: state.blog.postList,
+    isLoadingPosts: state.blog.isLoading,
+  };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadPosts: (num) => dispatch(getPosts(num)),
+  };
+};
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoadButton);

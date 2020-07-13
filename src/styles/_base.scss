@@ -1,0 +1,75 @@
+@import './config';
+
+// disable zooming on mobile
+:root {
+  touch-action: pan-x pan-y;
+  height: 100% 
+}
+
+// Disable input zooming on focus 
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  font-size: 16px;
+}
+
+// reset style 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+a {
+  color: $dark;
+}
+
+a:hover {
+  color: $dark;
+  text-decoration: none;
+}
+
+
+
+button, input {
+-webkit-appearance: none;
+-moz-appearance: none;
+opacity: 1;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset;
+}
+
+// scrollbar effects 
+
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+
+body::-webkit-scrollbar-thumb {
+  height: 5px;
+  background-color: $red;
+  border-radius: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 769px) {
+  html, body {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}

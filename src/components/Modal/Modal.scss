@@ -1,0 +1,39 @@
+@import '../../styles/config';
+
+.modal-content {
+  color: $dark;
+  @include thinTextShadow;
+  @include thinBorder;
+}
+
+.modal-btn {
+  @include thinBorder;
+  @include flex-center(row);
+  position: relative;
+  width: 250px;
+  height: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, $red, $dark);
+  translate: all 0.2s linear;
+}
+
+.modal-btn:hover {
+  @include thinBorder;
+  box-shadow: none;
+  transform: translateX(-50%) scale(1.05);
+}
+
+.modalBtn-login {
+  background: linear-gradient(to bottom, $red, $dark);
+}
+
+.modalBtn-newAcc {
+  background: $dark;
+}
+
+
+
+.modal-backdrop.show {
+  opacity: 0.8;
+}

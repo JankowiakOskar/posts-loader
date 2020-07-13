@@ -1,4 +1,15 @@
+@import '../../styles/base';
 
-.post-list {
+.post-list, .spinner-ctn {
   min-height: 100vh;
 }
+
+.spinner-ctn {
+  @include flex-center(row);
+}
+
+.row {
+  margin: 150px 0 0;
+}
+
+
