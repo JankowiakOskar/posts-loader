@@ -20,7 +20,7 @@ const LoadButton = ({ posts, loadPosts, isLoadingPosts }) => {
     <div className="container d-flex justify-content-center">
       <button
         type="button"
-        className="btn btn-loader btn m-5"
+        className="btn-loader m-5"
         onClick={() => handleClick(6)}
         disabled={isLoadingPosts}
       >

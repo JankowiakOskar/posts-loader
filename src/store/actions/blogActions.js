@@ -12,7 +12,6 @@ export const getPosts = (numPosts = 6) => {
           `${APIkey}${numPosts}`,
         )
         .then((res) => {
-          console.log(res);
           const articleList = res.data.posts;
           const newArticleList  = articleList.map(article => {
            return  {
@@ -48,7 +47,6 @@ export const getSignOutPosts = (numPosts = 6) => {
           `${APIkey}${numPosts}`,
         )
         .then((res) => {
-          console.log(res);
           const articleList = res.data.posts;
           const newArticleList  = articleList.map(article => {
            return  {

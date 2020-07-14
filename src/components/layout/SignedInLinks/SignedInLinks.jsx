@@ -6,7 +6,6 @@ import { deleteLoadedPosts } from '../../../store/actions/blogActions'
 
 const SignedInLinks = (props) => {
   const { signOut, deleteAllPosts, profile } = props;
-  console.log(profile);
   const handleClick = async () => {
     deleteAllPosts();
     signOut()

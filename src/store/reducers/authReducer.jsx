@@ -18,14 +18,12 @@ export const authReducer = (state = initState, action) => {
       }
     }
     case 'LOGIN_SUCCESS':
-      console.log('login success');
       return {
         ...state,
         authError: null,
         isLoggedIn: true,
       }
     case 'LOGIN_ERROR':
-      console.log('login error');
       return {
         ...state,
         authError: action.error,
@@ -33,7 +31,6 @@ export const authReducer = (state = initState, action) => {
         isLoggedIn: false,
       };
     case 'SIGNOUT_SUCCESS':
-      console.log('signout sucess');
       return {
         ...state,
         authError: null,
@@ -41,7 +38,6 @@ export const authReducer = (state = initState, action) => {
         isLoggedIn: false,
       }
     case 'SIGNOUT_ERROR':
-      console.log('signout error');
       return {
         ...state,
         authError: action.signOutError,
@@ -49,14 +45,12 @@ export const authReducer = (state = initState, action) => {
         isLoggedIn: true,
       };
     case 'SIGNUP_SUCCESS':
-      console.log('signup success')
       return {
         ...state,
         authError: null,
         isLoggedIn: false,
       }
     case 'SIGNUP_ERROR':
-      console.log('signup error');
       return {
         ...state,
         authError: action.signUpError,
